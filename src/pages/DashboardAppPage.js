@@ -42,7 +42,7 @@ const style={display:'flex',justifyContent:'center',gap:'6px'}
 
 <Button href="" target="_blank" variant="outlined" style={style}>
 
-<Iconify icon="mdi:file-upload" /><span>Folder upload</span>
+<Iconify icon="mdi:file-upload" /><span>File upload</span>
 </Button>
 <Button href="" target="_blank" variant="outlined" style={style}>
 
