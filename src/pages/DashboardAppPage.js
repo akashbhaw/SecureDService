@@ -19,7 +19,7 @@ import {
 
 // 
 import UserPage from './UserPage';
-import ReactVirtualizedTable from './list';
+
 
 // ----------------------------------------------------------------------
 
