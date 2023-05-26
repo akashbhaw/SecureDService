@@ -24,6 +24,7 @@ import UserPage from './UserPage';
 // ----------------------------------------------------------------------
 
 export default function DashboardAppPage() {
+  
 const style={display:'flex',justifyContent:'center',gap:'6px'}
 
   return (

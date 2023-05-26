@@ -3,9 +3,13 @@ import { useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem, Avatar, IconButton, Popover } from '@mui/material';
 // mocks_
-import account from '../../../_mock/account';
 // eslint-disable-next-line import/order, import/no-unresolved
 import Iconify from 'src/components/iconify/Iconify';
+// eslint-disable-next-line import/no-unresolved
+import { useAuth } from 'src/sections/contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import account from '../../../_mock/account';
+
 
 
 // ----------------------------------------------------------------------
@@ -29,6 +33,10 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const [open, setOpen] = useState(null);
+  const {currentUser,logout}=useAuth()
+  const [error,setError]=useState(' ')
+  const nevigate=useNavigate()
+
 
   const handleOpen = (event) => {
     setOpen(event.currentTarget);
@@ -38,8 +46,22 @@ export default function AccountPopover() {
     setOpen(null);
   };
 
+  const  handleLogout=()=>{
+    setError(' ')
+    try{
+      logout();
+      nevigate('/login')
+    }
+    catch(error){
+      setError('Oops!')
+    }
+    
+  }
+
+
   return (
     <>
+    {error}
       <IconButton
         onClick={handleOpen}
         sx={{
@@ -81,10 +103,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle2" noWrap>
-            {account.displayName}
+            {currentUser && currentUser.displayName}
           </Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }} noWrap>
-            {account.email}
+            {currentUser && currentUser.email}
           </Typography>
         </Box>
 
@@ -100,7 +122,7 @@ export default function AccountPopover() {
 
         <Divider sx={{ borderStyle: 'dashed' }} />
 
-        <MenuItem onClick={handleClose} sx={{ m: 1 }}>
+        <MenuItem onClick={handleLogout} sx={{ m: 1 }}>
           Logout
         </MenuItem>
       </Popover>
