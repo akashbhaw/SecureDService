@@ -20,4 +20,4 @@ Distributed under the MIT License. See [LICENSE](https://github.com/minimal-ui-k
 
 ## Contact us
 
-Email Us: support@SDS@gmail.com
+Email Us: supportSDS@gmail.com
