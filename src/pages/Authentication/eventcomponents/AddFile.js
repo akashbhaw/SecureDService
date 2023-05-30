@@ -167,7 +167,7 @@ export default function AddFile({ currentFolder }) {
           sx={{ zIndex: 9999 }}
         >
           <SnackbarContent
-            message={file.name}
+            message={`${file.name} is uploading....`}
             action={
               <>
                 {file.error ? (
