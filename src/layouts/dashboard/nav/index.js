@@ -71,7 +71,7 @@ export default function Nav({ openNav, onCloseNav }) {
             <Progress/>
           </Box>
 
-          <Button href="https://material-ui.com/store/items/minimal-dashboard/" target="_blank" variant="contained">
+          <Button href="https://paytm.me/A-8uyuV" target="_blank" variant="contained">
             Get More space
           </Button>
         </Stack>

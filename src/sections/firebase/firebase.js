@@ -13,7 +13,14 @@ const app = firebase.initializeApp({
     measurementId: "G-G01HC7ZDFN"
   }); 
 
+const firestore=app.firestore()
+export const database= {
+  folders:firestore.collection('folders'),
+  files:firestore.collection('files'),
+  formatDoc:doc=>({id:doc.id,...doc.data()}),
+  getcurrentTimesStamp:firebase.firestore.FieldValue.serverTimestamp
   
+}
 export  const auth =app.auth()
 export const storage=app.storage()
 export default app;

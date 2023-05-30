@@ -126,7 +126,7 @@ export default function NotificationsPopover() {
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="subtitle1">Notifications</Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              You have {totalUnRead} unread messages
+              You have {0} unread messages
             </Typography>
           </Box>
 
@@ -149,11 +149,7 @@ export default function NotificationsPopover() {
                 New
               </ListSubheader>
             }
-          >
-            {notifications.slice(0, 2).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
-            ))}
-          </List>
+           />
 
           <List
             disablePadding
@@ -162,11 +158,7 @@ export default function NotificationsPopover() {
                 Before that
               </ListSubheader>
             }
-          >
-            {notifications.slice(2, 5).map((notification) => (
-              <NotificationItem key={notification.id} notification={notification} />
-            ))}
-          </List>
+           />
         </Scrollbar>
 
         <Divider sx={{ borderStyle: 'dashed' }} />

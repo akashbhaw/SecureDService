@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 // routes

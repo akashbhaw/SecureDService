@@ -31,13 +31,14 @@ export default function Router() {
           <Route path="/dashboard" element={<DashboardLayout />}>
             <Route index element={<Navigate to="/dashboard/docs" />} />
             <Route path="/dashboard/docs" element={<DashboardAppPage />} />
+            <Route path="/dashboard/docs/folder/:folderId" element={<DashboardAppPage />} />
             <Route path="/dashboard/shared" element={<UserPage />} />
             <Route path="/dashboard/recent" element={<ProductsPage />} />
             <Route path="/dashboard/trashed" element={<BlogPage />} />
           </Route>
         </Route>
 
-        <Route path="*" element={<Navigate to="/404" replace />} />
+
       </Route>
     </Routes>
   );
