@@ -8,6 +8,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Iconify from '../../../components/iconify';
 import 'firebase/firestore';
 
+// eslint-disable-next-line import/order
+import {ref, getStorage,deleteObject} from 'firebase/storage'
+
 const StyledIcon = styled('div')(({ theme }) => ({
   margin: 'auto',
   display: 'flex',
@@ -42,6 +45,7 @@ export default function File({ file, color = 'dark', ...other }) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenuOpen = (event) => {
+    event.stopImmediatePropagation()
     if (event.currentTarget instanceof HTMLButtonElement) {
       setAnchorEl(event.currentTarget);
     }
@@ -67,7 +71,19 @@ export default function File({ file, color = 'dark', ...other }) {
   };
 
   const handleDelete = (event) => {
-    event.stopPropagation();
+
+
+    const storage = getStorage();
+
+// Create a reference to the file to delete
+const desertRef = ref(storage, file.url);
+
+// Delete the file
+deleteObject(desertRef).then(() => {
+  // File deleted successfully
+}).catch((error) => {
+  // Uh-oh, an error occurred!
+});
     // Implement your delete logic for the file
     handleMenuClose();
   };
